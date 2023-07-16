@@ -1,0 +1,23 @@
+{
+    "question": "What is the probability that a measurement will be the 0 state?$:",
+    "type": "numeric",
+    "precision": 2,
+    "answers": [
+        {
+            "type": "value",
+            "value": 0.5,
+            "correct": true,
+            "feedback": "Correct."
+        },
+        {
+            "type": "range",
+            "range": [ -100000000, 0], 
+            "correct": false,
+            "feedback": "The probability of a measuement is given by the square of the amplitude. Try again."
+        },
+        {
+            "type": "default",
+            "feedback": "The probability of a measuement is given by the square of the amplitude. Try again."
+        }
+    ]
+}

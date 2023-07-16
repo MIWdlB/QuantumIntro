@@ -1,0 +1,77 @@
+\documentclass[multi=circuitikz,crop,convert]{standalone}
+\usepackage[RPvoltages]{circuitikz}
+\usepackage{blochsphere}
+
+\begin{document} 
+
+\begin{circuitikz}[scale=5, transform shape]
+	\draw (0,0) node[and port] {};
+\end{circuitikz}
+
+\begin{circuitikz}[scale=5, transform shape]
+	\draw (0,0) node[or port] {};
+\end{circuitikz}
+
+\begin{circuitikz}[scale=5, transform shape]
+	\draw (0,0) node[not port] {};
+\end{circuitikz}
+
+\begin{circuitikz}[scale=5, transform shape]
+	\draw
+	(0,2)         node (myand1) [xshift=1cm,and port]           {}
+	(myand1.out)  node      [anchor=south west]             {}
+	(myand1.in 1) node (A1)     [anchor=east,xshift=-1cm]           {0}
+	(myand1.in 2) node (B1)     [anchor=east,xshift=-1cm,yshift=-.7cm]  {1} 
+	(0,0)         node (mynot1) [not port, scale=.5]            {} 
+	(mynot1.out)  node      [anchor=south west]             {}
+	(2.5,-.280)   node (myor1)  [or port]                   {}
+	(myor1.out)   node      [anchor=south west,xshift=.05cm]        {}
+	(4,1.72)      node (myor2)  [or port]                   {}
+	(myor1.in 2)  node (C1)     [anchor=east,xshift=-2.5cm]         {0}
+	(myor2.out)   node      [anchor=south west]             {};
+	
+	\draw (myor2.out) -- ++(1cm,0);
+	\draw (myand1.in 2) |- (mynot1.in);
+	\draw (mynot1.out) -| (myor1.in 1);
+	\draw (myand1.out) -- (myor2.in 1);
+	\draw (myor1.out) -- (myor2.in 2);
+	\draw (myand1.in 1) -- (A1);
+	\foreach \Point in {(A1),(B1), (C1)}{
+		\node [xshift=.2cm] at \Point {\textbullet};
+	}
+	\node [xshift=1.25cm] at (B1) {$\bullet$};
+	\node [xshift=1cm] at (myor2.out) {$\bullet$};
+	\draw (B1) -- ++(1.25cm,0);
+	\draw (myor1.in 2) -- (C1);
+\end{circuitikz}
+
+\begin{circuitikz}[scale=5, transform shape]
+	\draw
+	(0,2)         node (myand1) [xshift=1cm,and port]           {}
+	(myand1.out)  node      [anchor=south west]             {}
+	(myand1.in 1) node (A1)     [anchor=east,xshift=-1cm]           {0}
+	(myand1.in 2) node (B1)     [anchor=east,xshift=-1cm,yshift=-.7cm]  {0} 
+	(0,0)         node (mynot1) [not port, scale=.5]            {} 
+	(mynot1.out)  node      [anchor=south west]             {}
+	(2.5,-.280)   node (myor1)  [or port]                   {}
+	(myor1.out)   node      [anchor=south west,xshift=.05cm]        {}
+	(4,1.72)      node (myor2)  [or port]                   {}
+	(myor1.in 2)  node (C1)     [anchor=east,xshift=-2.5cm]         {1}
+	(myor2.out)   node      [anchor=south west]             {};
+	
+	\draw (myor2.out) -- ++(1cm,0);
+	\draw (myand1.in 2) |- (mynot1.in);
+	\draw (mynot1.out) -| (myor1.in 1);
+	\draw (myand1.out) -- (myor2.in 1);
+	\draw (myor1.out) -- (myor2.in 2);
+	\draw (myand1.in 1) -- (A1);
+	\foreach \Point in {(A1),(B1), (C1)}{
+		\node [xshift=.2cm] at \Point {\textbullet};
+	}
+	\node [xshift=1.25cm] at (B1) {$\bullet$};
+	\node [xshift=1cm] at (myor2.out) {$\bullet$};
+	\draw (B1) -- ++(1.25cm,0);
+	\draw (myor1.in 2) -- (C1);
+\end{circuitikz}
+
+\end{document}

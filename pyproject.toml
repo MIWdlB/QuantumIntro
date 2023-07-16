@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "intro to quantum computing"
+version = "0.1.0"
+description = ""
+authors = ["Michael Williams <ucapiwi@ucl.ac.uk>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+qiskit = "^0.43.2"
+rise = "^5.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
