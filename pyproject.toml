@@ -8,8 +8,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+jupyter = "^1.0.0"
 qiskit = "^0.43.2"
-rise = "^5.7.1"
+ipykernel = "^6.24.0"
 
 
 [build-system]
